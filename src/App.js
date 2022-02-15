@@ -1,23 +1,21 @@
 import React from "react";
 import Movies from "./views/Movies.js";
+import Home from "./views/Home.js";
 import "./App.css";
 
-import movies from "./films.json";
-
-import { BrowserRouter, Route, Link, Switch } from "react-router-dom";
-
-const data = movies.map((movie) => {
-  return <Movies title={movie.title} />;
-});
+import { BrowserRouter, Route, Switch, Link } from "react-router-dom";
 
 class App extends React.Component {
   render() {
     return (
       <BrowserRouter>
-        {/* {data} */}
+        <nav>
+          <Link to="/">Homepage</Link>
+        </nav>
+
         <Switch>
-          <Route exact path="/" component={App} />
-          <Route path="/movies/:name" component={Movies} />
+          <Route exact path="/" component={Home} />
+          <Route path="/movies/:title" component={Movies} />
         </Switch>
       </BrowserRouter>
     );
