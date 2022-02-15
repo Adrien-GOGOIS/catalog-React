@@ -7,14 +7,18 @@ import movies from "../movies.json";
 
 class Home extends React.Component {
   render() {
-    const data = movies.map((movie) => {
-      return <Movies title={movie.title} />;
-    });
-
     return (
       <div>
         <h1>HOME</h1>
-        <Link>{data}</Link>
+        <ul>
+          {movies.map((movie) => {
+            return (
+              <li>
+                <Link to={`/movies/${movie.id}`}>{movie.title}</Link>
+              </li>
+            );
+          })}
+        </ul>
       </div>
     );
   }
